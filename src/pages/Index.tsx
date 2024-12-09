@@ -1,11 +1,8 @@
-import { useState, useEffect, useRef } from 'react';
-import { ChevronUp, Github, Linkedin, Mail, Moon, Sun, Briefcase, GraduationCap, FolderOpen, Download, User, Send } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { ChevronUp } from 'lucide-react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
-
-const chartreuse = '#7FFF00';
-const deepBlue = '#0003a3';
-const deepBlack = '#121212';
-const glassWhite = 'rgba(255, 255, 255, 0.1)';
+import Header from '../components/Header';
+import Banner from '../components/Banner';
 
 export default function Component() {
   const [activeSection, setActiveSection] = useState('home');
@@ -14,9 +11,6 @@ export default function Component() {
   const [activeTab, setActiveTab] = useState('experience');
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [formStatus, setFormStatus] = useState('');
-
-  const experienceRef = useRef<HTMLDivElement>(null);
-  const projectsRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll();
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
@@ -62,8 +56,6 @@ export default function Component() {
     }
   };
 
-  const highlightColor = darkMode ? chartreuse : deepBlue;
-
   const handleDownloadCV = () => {
     alert("Downloading CV... (This is a placeholder action)");
   };
@@ -83,91 +75,18 @@ export default function Component() {
   };
 
   return (
-    <div className={`min-h-screen ${darkMode ? `bg-[${deepBlack}] text-white` : 'bg-white text-gray-800'} transition-colors duration-300`}>
-      {/* Header */}
-      <motion.header 
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ type: 'spring', stiffness: 100 }}
-        className="fixed top-0 left-0 right-0 bg-[#121212] shadow-md z-50 transition-colors duration-300"
-      >
-        <nav className="container mx-auto px-6 py-4">
-          <ul className="flex justify-center space-x-8">
-            {['Home', 'About', 'Experience', 'Projects', 'Education'].map((item) => (
-              <li key={item}>
-                <motion.button
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  onClick={() => scrollToSection(item.toLowerCase())}
-                  className={`nav-link ${
-                    activeSection === item.toLowerCase() ? 'active' : 'text-white'
-                  }`}
-                >
-                  {item}
-                </motion.button>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </motion.header>
-
-      {/* Banner */}
-      <motion.section 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-        id="home" 
-        className="pt-32 pb-20 bg-[#121212]"
-      >
-        <motion.div 
-          className="container mx-auto px-4 text-center"
-          style={{ opacity }}
-        >
-          <h1 className="text-7xl font-bold mb-6 text-white name-underline inline-block">
-            Zhangshu Joshua Jiang
-          </h1>
-          <p className="text-4xl mb-12 text-white font-light">Doctor & Data Scientist</p>
-          <div className="flex justify-center space-x-6 mb-12">
-            <motion.a 
-              whileHover={{ scale: 1.2, rotate: 360 }}
-              whileTap={{ scale: 0.9 }}
-              href="mailto:zhangshu.j.jiang@gmail.com" 
-              className="text-[#7FFF00] hover:opacity-80 transition-opacity duration-300"
-            >
-              <Mail size={32} />
-            </motion.a>
-            <motion.a 
-              whileHover={{ scale: 1.2, rotate: 360 }}
-              whileTap={{ scale: 0.9 }}
-              href="https://www.linkedin.com/in/zhangshu-jiang/" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-[#7FFF00] hover:opacity-80 transition-opacity duration-300"
-            >
-              <Linkedin size={32} />
-            </motion.a>
-            <motion.a 
-              whileHover={{ scale: 1.2, rotate: 360 }}
-              whileTap={{ scale: 0.9 }}
-              href="https://github.com" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-[#7FFF00] hover:opacity-80 transition-opacity duration-300"
-            >
-              <Github size={32} />
-            </motion.a>
-          </div>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={handleDownloadCV}
-            className="bg-[#7FFF00] text-[#121212] py-3 px-6 rounded-md hover:opacity-90 transition-colors duration-300 flex items-center mx-auto text-lg font-medium"
-          >
-            <Download size={24} className="mr-2" />
-            Download CV
-          </motion.button>
-        </motion.div>
-      </motion.section>
+    <div className={`min-h-screen ${darkMode ? 'bg-deepBlack text-white' : 'bg-white text-black'} transition-colors duration-300 font-['Inter']`}>
+      <Header 
+        activeSection={activeSection}
+        darkMode={darkMode}
+        setDarkMode={setDarkMode}
+        scrollToSection={scrollToSection}
+      />
+      
+      <Banner 
+        darkMode={darkMode}
+        handleDownloadCV={handleDownloadCV}
+      />
 
       {/* About Me */}
       <motion.section 
@@ -316,7 +235,6 @@ export default function Component() {
                 transition={{ duration: 0.3 }}
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
                 id="projects"
-                ref={projectsRef}
               >
                 {[
                   {
@@ -485,23 +403,14 @@ export default function Component() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
             onClick={scrollToTop}
-            className={`fixed bottom-8 right-8 bg-[${highlightColor}] ${darkMode ? `text-[${deepBlack}]` : 'text-white'} p-3 rounded-full shadow-md hover:shadow-lg transition-all duration-300`}
+            className={`fixed bottom-8 right-8 ${
+              darkMode ? 'bg-chartreuse text-deepBlack' : 'bg-deepBlue text-white'
+            } p-3 rounded-full shadow-md hover:shadow-lg transition-all duration-300`}
           >
             <ChevronUp size={24} />
           </motion.button>
         )}
       </AnimatePresence>
-
-      {/* Dark Mode Toggle */}
-      <motion.button
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-        onClick={() => setDarkMode(!darkMode)}
-        className={`fixed top-24 right-8 z-50 ${darkMode ? `bg-[${chartreuse}] text-[${deepBlack}]` : `bg-[${deepBlue}] text-white`} p-3 rounded-full shadow-md hover:shadow-lg transition-all duration-300`}
-        aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
-      >
-        {darkMode ? <Sun size={24} /> : <Moon size={24} />}
-      </motion.button>
     </div>
   );
 }

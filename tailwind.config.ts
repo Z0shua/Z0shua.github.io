@@ -19,10 +19,10 @@ export default {
     },
     extend: {
       colors: {
-        chartreuse: "#7FFF00",
-        deepBlue: "#0003a3",
-        deepBlack: "#121212",
-        glassWhite: "rgba(255, 255, 255, 0.1)",
+        chartreuse: '#7FFF00',
+        deepBlue: '#0003a3',
+        deepBlack: '#121212',
+        glassWhite: 'rgba(255, 255, 255, 0.1)',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

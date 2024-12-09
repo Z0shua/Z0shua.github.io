@@ -61,6 +61,7 @@
 
 .name-underline {
   position: relative;
+  display: inline-block;
 }
 
 .name-underline::after {
@@ -70,7 +71,7 @@
   left: 0;
   width: 100%;
   height: 4px;
-  background-color: #7FFF00;
+  background-color: var(--accent);
 }
 
 .nav-link {
@@ -78,9 +79,9 @@
 }
 
 .nav-link.active {
-  @apply text-[#7FFF00] dark:text-[#7FFF00];
+  @apply text-deepBlue dark:text-chartreuse;
 }
 
 .nav-link:hover {
-  @apply text-[#7FFF00] dark:text-[#7FFF00];
+  @apply text-deepBlue dark:text-chartreuse;
 }
