@@ -89,18 +89,18 @@ export default function Component() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ type: 'spring', stiffness: 100 }}
-        className={`fixed top-0 left-0 right-0 ${darkMode ? `bg-[${deepBlack}]` : 'bg-white'} shadow-md z-50 transition-colors duration-300 backdrop-blur-md bg-opacity-80`}
+        className="fixed top-0 left-0 right-0 bg-[#121212] shadow-md z-50 transition-colors duration-300"
       >
-        <nav className="container mx-auto px-4 py-4">
-          <ul className="flex justify-center space-x-6">
-            {['Home', 'About', 'Experience', 'Projects', 'Education', 'Contact'].map((item) => (
+        <nav className="container mx-auto px-6 py-4">
+          <ul className="flex justify-center space-x-8">
+            {['Home', 'About', 'Experience', 'Projects', 'Education'].map((item) => (
               <li key={item}>
                 <motion.button
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                   onClick={() => scrollToSection(item.toLowerCase())}
-                  className={`text-lg font-medium hover:text-[${highlightColor}] transition-colors duration-300 ${
-                    activeSection === item.toLowerCase() ? `text-[${highlightColor}]` : ''
+                  className={`nav-link ${
+                    activeSection === item.toLowerCase() ? 'active' : 'text-white'
                   }`}
                 >
                   {item}
@@ -117,33 +117,24 @@ export default function Component() {
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
         id="home" 
-        className={`pt-20 pb-12 ${darkMode ? 'bg-gradient-to-br from-black to-gray-900' : 'bg-gradient-to-br from-white to-gray-100'} transition-colors duration-300`}
-        style={{ 
-          backgroundImage: darkMode ? 'radial-gradient(circle, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%)' : 'radial-gradient(circle, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 100%)'
-        }}
+        className="pt-32 pb-20 bg-[#121212]"
       >
         <motion.div 
           className="container mx-auto px-4 text-center"
           style={{ opacity }}
         >
-          <h1 className="text-6xl font-bold mb-4 relative inline-block">
+          <h1 className="text-7xl font-bold mb-6 text-white name-underline inline-block">
             Zhangshu Joshua Jiang
-            <motion.span
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ duration: 1, delay: 0.5 }}
-              className={`absolute bottom-0 left-0 w-full h-1 bg-[${highlightColor}]`}
-            ></motion.span>
           </h1>
-          <p className="text-3xl mb-8">Doctor & Data Scientist</p>
-          <div className="flex justify-center space-x-4">
+          <p className="text-4xl mb-12 text-white font-light">Doctor & Data Scientist</p>
+          <div className="flex justify-center space-x-6 mb-12">
             <motion.a 
               whileHover={{ scale: 1.2, rotate: 360 }}
               whileTap={{ scale: 0.9 }}
               href="mailto:zhangshu.j.jiang@gmail.com" 
-              className={`text-[${highlightColor}] hover:opacity-80 transition-opacity duration-300`}
+              className="text-[#7FFF00] hover:opacity-80 transition-opacity duration-300"
             >
-              <Mail size={28} />
+              <Mail size={32} />
             </motion.a>
             <motion.a 
               whileHover={{ scale: 1.2, rotate: 360 }}
@@ -151,9 +142,9 @@ export default function Component() {
               href="https://www.linkedin.com/in/zhangshu-jiang/" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className={`text-[${highlightColor}] hover:opacity-80 transition-opacity duration-300`}
+              className="text-[#7FFF00] hover:opacity-80 transition-opacity duration-300"
             >
-              <Linkedin size={28} />
+              <Linkedin size={32} />
             </motion.a>
             <motion.a 
               whileHover={{ scale: 1.2, rotate: 360 }}
@@ -161,18 +152,18 @@ export default function Component() {
               href="https://github.com" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className={`text-[${highlightColor}] hover:opacity-80 transition-opacity duration-300`}
+              className="text-[#7FFF00] hover:opacity-80 transition-opacity duration-300"
             >
-              <Github size={28} />
+              <Github size={32} />
             </motion.a>
           </div>
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={handleDownloadCV}
-            className={`mt-8 bg-[${highlightColor}] text-${darkMode ? `[${deepBlack}]` : 'white'} py-2 px-4 rounded-md hover:opacity-90 transition-colors duration-300 flex items-center mx-auto`}
+            className="bg-[#7FFF00] text-[#121212] py-3 px-6 rounded-md hover:opacity-90 transition-colors duration-300 flex items-center mx-auto text-lg font-medium"
           >
-            <Download size={20} className="mr-2" />
+            <Download size={24} className="mr-2" />
             Download CV
           </motion.button>
         </motion.div>
