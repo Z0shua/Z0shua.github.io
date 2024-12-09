@@ -15,8 +15,8 @@ export default function Component() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [formStatus, setFormStatus] = useState('');
 
-  const experienceRef = useRef<HTMLElement>(null);
-  const projectsRef = useRef<HTMLElement>(null);
+  const experienceRef = useRef<HTMLDivElement>(null);
+  const projectsRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll();
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
@@ -76,8 +76,6 @@ export default function Component() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setFormStatus('Sending...');
-    // In a real application, you would send the form data to a server here
-    // For this example, we'll just simulate a delay and then show a success message
     await new Promise(resolve => setTimeout(resolve, 2000));
     setFormStatus('Message sent successfully!');
     setFormData({ name: '', email: '', message: '' });
