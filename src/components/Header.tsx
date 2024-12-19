@@ -16,8 +16,8 @@ export default function Header({ activeSection, darkMode, setDarkMode, scrollToS
       transition={{ type: 'spring', stiffness: 100 }}
       className={`fixed top-0 left-0 right-0 ${darkMode ? 'bg-deepBlack' : 'bg-white'} z-50 transition-colors duration-300`}
     >
-      <nav className="container mx-auto px-4 py-3 md:py-4">
-        <div className="overflow-x-auto">
+      <nav className="container mx-auto px-4 py-3 md:py-4 flex justify-between items-center">
+        <div className="overflow-x-auto flex-grow">
           <ul className="flex justify-start md:justify-center space-x-4 md:space-x-8 min-w-max">
             {['Home', 'About', 'Experience', 'Projects', 'Education'].map((item) => (
               <li key={item}>
@@ -37,6 +37,19 @@ export default function Header({ activeSection, darkMode, setDarkMode, scrollToS
             ))}
           </ul>
         </div>
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          onClick={() => setDarkMode(!darkMode)}
+          className={`p-2 rounded-full ml-4 ${
+            darkMode 
+              ? 'bg-chartreuse text-deepBlack hover:bg-chartreuse/90' 
+              : 'bg-white text-deepBlue border-2 border-deepBlue hover:bg-deepBlue hover:text-white'
+          } transition-all duration-300`}
+          aria-label="Toggle theme"
+        >
+          {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+        </motion.button>
       </nav>
     </motion.header>
   );

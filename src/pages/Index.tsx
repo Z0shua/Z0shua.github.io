@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ChevronUp, User, Briefcase, FolderOpen, GraduationCap, Send } from 'lucide-react';
+import { ChevronUp } from 'lucide-react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import Header from '../components/Header';
 import Banner from '../components/Banner';
@@ -62,8 +62,16 @@ export default function Component() {
     alert("Downloading CV... (This is a placeholder action)");
   };
 
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [darkMode]);
+
   return (
-    <div className={`min-h-screen ${darkMode ? 'bg-deepBlack text-white' : 'bg-white text-black'} transition-colors duration-300 font-['Inter']`}>
+    <div className={`min-h-screen ${darkMode ? 'bg-deepBlack text-white' : 'bg-white text-black'} transition-colors duration-300`}>
       <Header 
         activeSection={activeSection}
         darkMode={darkMode}
