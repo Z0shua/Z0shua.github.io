@@ -13,23 +13,23 @@ export default function Banner({ darkMode, handleDownloadCV }: BannerProps) {
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
       id="home" 
-      className={`pt-32 pb-20 ${darkMode ? 'bg-deepBlack' : 'bg-white'}`}
+      className={`pt-20 md:pt-32 pb-12 md:pb-20 ${darkMode ? 'bg-deepBlack' : 'bg-white'}`}
     >
       <motion.div className="container mx-auto px-4 text-center">
-        <h1 className={`text-7xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-black'} name-underline inline-block font-['Inter']`}>
+        <h1 className={`text-4xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-6 ${darkMode ? 'text-white' : 'text-black'} name-underline inline-block font-['Inter']`}>
           Zhangshu Joshua Jiang
         </h1>
-        <p className={`text-4xl mb-12 ${darkMode ? 'text-white' : 'text-black'} font-light font-['Inter']`}>
+        <p className={`text-2xl md:text-3xl lg:text-4xl mb-8 md:mb-12 ${darkMode ? 'text-white' : 'text-black'} font-light font-['Inter']`}>
           Doctor & Data Scientist
         </p>
-        <div className="flex justify-center space-x-6 mb-12">
+        <div className="flex justify-center space-x-4 md:space-x-6 mb-8 md:mb-12">
           <motion.a 
             whileHover={{ scale: 1.2, rotate: 360 }}
             whileTap={{ scale: 0.9 }}
             href="mailto:zhangshu.j.jiang@gmail.com" 
             className={`${darkMode ? 'text-chartreuse' : 'text-deepBlue'} hover:opacity-80 transition-opacity duration-300`}
           >
-            <Mail size={32} />
+            <Mail size={24} className="md:w-8 md:h-8" />
           </motion.a>
           <motion.a 
             whileHover={{ scale: 1.2, rotate: 360 }}
@@ -39,7 +39,7 @@ export default function Banner({ darkMode, handleDownloadCV }: BannerProps) {
             rel="noopener noreferrer" 
             className={`${darkMode ? 'text-chartreuse' : 'text-deepBlue'} hover:opacity-80 transition-opacity duration-300`}
           >
-            <Linkedin size={32} />
+            <Linkedin size={24} className="md:w-8 md:h-8" />
           </motion.a>
           <motion.a 
             whileHover={{ scale: 1.2, rotate: 360 }}
@@ -49,16 +49,16 @@ export default function Banner({ darkMode, handleDownloadCV }: BannerProps) {
             rel="noopener noreferrer" 
             className={`${darkMode ? 'text-chartreuse' : 'text-deepBlue'} hover:opacity-80 transition-opacity duration-300`}
           >
-            <Github size={32} />
+            <Github size={24} className="md:w-8 md:h-8" />
           </motion.a>
         </div>
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={handleDownloadCV}
-          className={`${darkMode ? 'bg-chartreuse text-deepBlack' : 'bg-deepBlue text-white'} py-3 px-6 rounded-md hover:opacity-90 transition-colors duration-300 flex items-center mx-auto text-lg font-medium`}
+          className={`${darkMode ? 'bg-chartreuse text-deepBlack' : 'bg-deepBlue text-white'} py-2 md:py-3 px-4 md:px-6 rounded-md hover:opacity-90 transition-colors duration-300 flex items-center mx-auto text-base md:text-lg font-medium`}
         >
-          <Download size={24} className="mr-2" />
+          <Download size={20} className="mr-2 md:w-6 md:h-6" />
           Download CV
         </motion.button>
       </motion.div>
