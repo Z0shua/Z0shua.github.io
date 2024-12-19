@@ -1,0 +1,31 @@
+@tailwind components;
+
+@layer components {
+  .name-underline {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.25rem;
+  }
+
+  .name-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: var(--accent);
+  }
+
+  .nav-link {
+    @apply font-medium transition-colors duration-300 whitespace-nowrap;
+  }
+
+  .nav-link.active {
+    @apply text-deepBlue dark:text-chartreuse;
+  }
+
+  .nav-link:hover {
+    @apply text-deepBlue dark:text-chartreuse;
+  }
+}
