@@ -16,12 +16,22 @@ export default function Banner({ darkMode, handleDownloadCV }: BannerProps) {
       className={`pt-20 md:pt-32 pb-12 md:pb-20 ${darkMode ? 'bg-deepBlack' : 'bg-white'}`}
     >
       <motion.div className="container mx-auto px-4 text-center">
-        <h1 className={`text-4xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-6 ${darkMode ? 'text-white' : 'text-black'} name-underline inline-block font-['Inter']`}>
+        <motion.h1 
+          initial={{ y: -20 }}
+          animate={{ y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className={`text-4xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-6 ${darkMode ? 'text-white' : 'text-black'} name-underline inline-block font-['Space_Grotesk']`}
+        >
           Zhangshu Joshua Jiang
-        </h1>
-        <p className={`text-2xl md:text-3xl lg:text-4xl mb-8 md:mb-12 ${darkMode ? 'text-white' : 'text-black'} font-light font-['Inter']`}>
+        </motion.h1>
+        <motion.p 
+          initial={{ y: -20 }}
+          animate={{ y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className={`text-2xl md:text-3xl lg:text-4xl mb-8 md:mb-12 ${darkMode ? 'text-white' : 'text-black'} font-light font-['Space_Grotesk']`}
+        >
           Doctor & Data Scientist
-        </p>
+        </motion.p>
         <div className="flex justify-center space-x-4 md:space-x-6 mb-8 md:mb-12">
           <motion.a 
             whileHover={{ scale: 1.2, rotate: 360 }}
