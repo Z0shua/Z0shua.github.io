@@ -11,71 +11,67 @@ export default function Banner({ darkMode, handleDownloadCV }: BannerProps) {
     <motion.section 
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 1 }}
       id="home" 
-      className="min-h-screen flex items-center py-20"
+      className={`pt-20 md:pt-32 pb-12 md:pb-20 ${darkMode ? 'bg-deepBlack' : 'bg-white'}`}
     >
-      <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.h1 
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-5xl md:text-6xl font-bold mb-6"
+      <motion.div className="container mx-auto px-4 text-center">
+        <motion.h1 
+          initial={{ y: -20 }}
+          animate={{ y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className={`text-4xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-6 ${darkMode ? 'text-white' : 'text-black'} name-underline inline-block font-['Space_Grotesk']`}
+        >
+          Zhangshu Joshua Jiang
+        </motion.h1>
+        <motion.p 
+          initial={{ y: -20 }}
+          animate={{ y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className={`text-2xl md:text-3xl lg:text-4xl mb-8 md:mb-12 ${darkMode ? 'text-white' : 'text-black'} font-light font-['Space_Grotesk']`}
+        >
+          Doctor & Data Scientist
+        </motion.p>
+        <div className="flex justify-center space-x-4 md:space-x-6 mb-8 md:mb-12">
+          <motion.a 
+            whileHover={{ scale: 1.2, rotate: 360 }}
+            whileTap={{ scale: 0.9 }}
+            href="mailto:zhangshu.j.jiang@gmail.com" 
+            className={`${darkMode ? 'text-chartreuse' : 'text-deepBlue'} hover:opacity-80 transition-opacity duration-300`}
           >
-            Hi, I'm <span className={`${darkMode ? 'text-chartreuse' : 'text-deepBlue'} name-underline`}>Joshua</span>
-          </motion.h1>
-          <motion.p 
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="text-xl md:text-2xl mb-8 opacity-90"
+            <Mail size={24} className="md:w-8 md:h-8" />
+          </motion.a>
+          <motion.a 
+            whileHover={{ scale: 1.2, rotate: 360 }}
+            whileTap={{ scale: 0.9 }}
+            href="https://www.linkedin.com/in/zhangshu-jiang/" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className={`${darkMode ? 'text-chartreuse' : 'text-deepBlue'} hover:opacity-80 transition-opacity duration-300`}
           >
-            A Doctor & Data Scientist passionate about healthcare innovation
-          </motion.p>
-          <motion.div 
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-            className="flex justify-center space-x-4 mb-12"
+            <Linkedin size={24} className="md:w-8 md:h-8" />
+          </motion.a>
+          <motion.a 
+            whileHover={{ scale: 1.2, rotate: 360 }}
+            whileTap={{ scale: 0.9 }}
+            href="https://github.com" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className={`${darkMode ? 'text-chartreuse' : 'text-deepBlue'} hover:opacity-80 transition-opacity duration-300`}
           >
-            <motion.a
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              href="https://github.com/Z0shua/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`${darkMode ? 'text-chartreuse hover:text-white' : 'text-deepBlue hover:text-gray-600'} transition-colors duration-300`}
-            >
-              <Github size={32} />
-            </motion.a>
-            <motion.a
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              href="https://www.linkedin.com/in/joshua-adeyemi-5a0b23251/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`${darkMode ? 'text-chartreuse hover:text-white' : 'text-deepBlue hover:text-gray-600'} transition-colors duration-300`}
-            >
-              <Linkedin size={32} />
-            </motion.a>
-          </motion.div>
-          <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.8 }}
-          >
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={handleDownloadCV}
-              className={`${darkMode ? 'bg-chartreuse text-deepBlack' : 'bg-deepBlue text-white'} px-8 py-3 rounded-md text-lg font-medium hover:opacity-90 transition-colors duration-300`}
-            >
-              Download CV
-            </motion.button>
-          </motion.div>
+            <Github size={24} className="md:w-8 md:h-8" />
+          </motion.a>
         </div>
-      </div>
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={handleDownloadCV}
+          className={`${darkMode ? 'bg-chartreuse text-deepBlack' : 'bg-deepBlue text-white'} py-2 md:py-3 px-4 md:px-6 rounded-md hover:opacity-90 transition-colors duration-300 flex items-center mx-auto text-base md:text-lg font-medium`}
+        >
+          <Download size={20} className="mr-2 md:w-6 md:h-6" />
+          Download CV
+        </motion.button>
+      </motion.div>
     </motion.section>
   );
 }
