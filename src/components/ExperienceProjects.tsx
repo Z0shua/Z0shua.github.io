@@ -1,11 +1,58 @@
 import { Briefcase, FolderOpen } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import ExperienceCard from './experience/ExperienceCard';
+import ProjectCard from './projects/ProjectCard';
 
 interface ExperienceProjectsProps {
   darkMode: boolean;
   activeTab: string;
   setActiveTab: (tab: string) => void;
 }
+
+const experienceData = [
+  {
+    title: 'Data Scientist',
+    company: 'Lancashire and South Cumbria Integrated Care Board (ICB)',
+    date: 'Jan 2024 - Present',
+    description: [
+      'Managed the data engineering of OMOP OHDSI database with integration of LLMs to facilitate ease of access and query generation using NLP, making large health data more accessible.',
+      'Collaborated with clinical teams to develop data models that enhance virtual healthcare, improving the accessibility of care through technological innovation.',
+      'Implemented machine learning algorithms to predict patient readmission risks, resulting in a 20% reduction in unnecessary readmissions.',
+      'Developed a real-time dashboard for resource allocation, improving emergency response times by 15%.'
+    ]
+  },
+  {
+    title: 'Foundation Doctor',
+    company: 'Lancashire Teaching Hospitals',
+    date: 'Aug 2023 - Present',
+    description: [
+      'Initiated cloud-based solutions for patient handovers in the Gastro department, streamlining workflow and reducing errors by 15%.',
+      'Expanded the online patient handover system implementation across the entire surgical department, improving care coordination.',
+      'Utilised data analysis and patient management software to enhance care delivery and patient outcomes.',
+      'Contributed to multidisciplinary team meetings, improving patient care plan efficiency by 20%.',
+      'Achieved an increased 95% patient satisfaction rate through improving patient information access.',
+      'Developed a phone attachment for the FNE scope via 3D modeling and printing, improving diagnostic capabilities in the ENT department.',
+    ]
+  }
+];
+
+const projectsData = [
+  {
+    title: "CareTrack: Seamless Care Transitions",
+    description: "Developed a digital platform to streamline patient data sharing between care homes and hospitals, reducing hospital readmissions by 20%.",
+    tech: ["React", "TypeScript", "Tailwind", "API integration", "SQL", "Node.js", "UX/UI"]
+  },
+  {
+    title: "LLM-Powered SOP Optimization",
+    description: "Developed an RAG agentic LLM model trained on local trust guidelines, streamlining SOP searches and queries, reducing search times by 50% and enhancing operational efficiency.",
+    tech: ["RAG", "LLM", "NLP", "AI Integration", "Data Training", "Python"]
+  },
+  {
+    title: "Cloud-Based Handover System",
+    description: "Transitioned from a static, local document to a cloud-based solution using SharePoint and Azure, enabling real-time collaboration for seamless staff handovers and improving efficiency by 40%.",
+    tech: ["Azure", "SharePoint", "Cloud Solutions", "Security"]
+  }
+];
 
 export default function ExperienceProjects({ darkMode, activeTab, setActiveTab }: ExperienceProjectsProps) {
   return (
@@ -52,50 +99,13 @@ export default function ExperienceProjects({ darkMode, activeTab, setActiveTab }
               transition={{ duration: 0.3 }}
             >
               <div className="space-y-12">
-                {[
-                  {
-                    title: 'Data Scientist',
-                    company: 'Lancashire and South Cumbria Integrated Care Board (ICB)',
-                    date: 'Jan 2024 - Present',
-                    description: [
-                      'Managed the data engineering of OMOP OHDSI database with integration of LLMs to facilitate ease of access and query generation using NLP, making large health data more accessible.',
-                      'Collaborated with clinical teams to develop data models that enhance virtual healthcare, improving the accessibility of care through technological innovation.',
-                      'Implemented machine learning algorithms to predict patient readmission risks, resulting in a 20% reduction in unnecessary readmissions.',
-                      'Developed a real-time dashboard for resource allocation, improving emergency response times by 15%.'
-                    ]
-                  },
-                  {
-                    title: 'Foundation Doctor',
-                    company: 'Lancashire Teaching Hospitals',
-                    date: 'Aug 2023 - Present',
-                    description: [
-                      'Initiated cloud-based solutions for patient handovers in the Gastro department, streamlining workflow and reducing errors by 15%.',
-                      'Expanded the online patient handover system implementation across the entire surgical department, improving care coordination.',
-                      'Utilised data analysis and patient management software to enhance care delivery and patient outcomes.',
-                      'Contributed to multidisciplinary team meetings, improving patient care plan efficiency by 20%.',
-                      'Achieved an increased 95% patient satisfaction rate through improving patient information access.',
-                      'Developed a phone attachment for the FNE scope via 3D modeling and printing, improving diagnostic capabilities in the ENT department.',
-                    ]
-                  }
-                ].map((job, index) => (
-                  <motion.div 
-                    key={`job-${index}`}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className={`${darkMode ? 'bg-black' : 'bg-white'} rounded-lg shadow-lg p-8 transition-all duration-300 hover:shadow-xl backdrop-blur-md bg-opacity-80`}
-                  >
-                    <h3 className={`text-2xl font-semibold mb-4 ${darkMode ? 'bg-chartreuse text-deepBlack' : 'bg-deepBlue text-white'} inline-block px-4 py-2 rounded`}>
-                      {job.title}
-                    </h3>
-                    <p className="text-xl mb-2">{job.company}</p>
-                    <p className="text-lg mb-4 opacity-75">{job.date}</p>
-                    <ul className="list-disc list-inside space-y-2">
-                      {job.description.map((item, i) => (
-                        <li key={`job-${index}-desc-${i}`} className="text-base">{item}</li>
-                      ))}
-                    </ul>
-                  </motion.div>
+                {experienceData.map((job, index) => (
+                  <ExperienceCard
+                    key={index}
+                    {...job}
+                    darkMode={darkMode}
+                    index={index}
+                  />
                 ))}
               </div>
             </motion.div>
@@ -111,41 +121,13 @@ export default function ExperienceProjects({ darkMode, activeTab, setActiveTab }
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
               id="projects"
             >
-              {[
-                {
-                  title: "CareTrack: Seamless Care Transitions",
-                  description: "Developed a digital platform to streamline patient data sharing between care homes and hospitals, reducing hospital readmissions by 20%.",
-                  tech: ["React", "TypeScript", "Tailwind", "API integration", "SQL", "Node.js", "UX/UI"]
-                },
-                {
-                  title: "LLM-Powered SOP Optimization",
-                  description: "Developed an RAG agentic LLM model trained on local trust guidelines, streamlining SOP searches and queries, reducing search times by 50% and enhancing operational efficiency.",
-                  tech: ["RAG", "LLM", "NLP", "AI Integration", "Data Training", "Python"]
-                },
-                {
-                  title: "Cloud-Based Handover System",
-                  description: "Transitioned from a static, local document to a cloud-based solution using SharePoint and Azure, enabling real-time collaboration for seamless staff handovers and improving efficiency by 40%.",
-                  tech: ["Azure", "SharePoint", "Cloud Solutions", "Security"]
-                }
-              ].map((project, index) => (
-                <motion.div
-                  key={`project-${index}`}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.3, delay: index * 0.1 }}
-                  whileHover={{ scale: 1.05 }}
-                  className={`${darkMode ? 'bg-black' : 'bg-white'} rounded-lg shadow-lg p-6 transition-all duration-300 hover:shadow-xl backdrop-blur-md bg-opacity-80 border-2 border-transparent ${darkMode ? 'hover:border-chartreuse' : 'hover:border-deepBlue'}`}
-                >
-                  <h3 className="text-2xl font-semibold mb-4">{project.title}</h3>
-                  <p className="text-base mb-4 opacity-75">{project.description}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tech.map((tech, i) => (
-                      <span key={`project-${index}-tech-${i}`} className={`text-sm px-3 py-1 rounded-full ${darkMode ? 'bg-chartreuse text-deepBlack' : 'bg-deepBlue text-white'}`}>
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </motion.div>
+              {projectsData.map((project, index) => (
+                <ProjectCard
+                  key={index}
+                  {...project}
+                  darkMode={darkMode}
+                  index={index}
+                />
               ))}
             </motion.div>
           )}
