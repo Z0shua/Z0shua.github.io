@@ -52,51 +52,76 @@ export default function ExperienceProjects({ darkMode, activeTab, setActiveTab }
               transition={{ duration: 0.3 }}
             >
               <div className="space-y-12">
-                {[
-                  {
-                    title: 'Data Scientist',
-                    company: 'Lancashire and South Cumbria Integrated Care Board (ICB)',
-                    date: 'Jan 2024 - Present',
-                    description: [
-                      'Managed the data engineering of OMOP OHDSI database with integration of LLMs to facilitate ease of access and query generation using NLP, making large health data more accessible.',
-                      'Collaborated with clinical teams to develop data models that enhance virtual healthcare, improving the accessibility of care through technological innovation.',
-                      'Implemented machine learning algorithms to predict patient readmission risks, resulting in a 20% reduction in unnecessary readmissions.',
-                      'Developed a real-time dashboard for resource allocation, improving emergency response times by 15%.'
-                    ]
-                  },
-                  {
-                    title: 'Foundation Doctor',
-                    company: 'Lancashire Teaching Hospitals',
-                    date: 'Aug 2023 - Present',
-                    description: [
-                      'Initiated cloud-based solutions for patient handovers in the Gastro department, streamlining workflow and reducing errors by 15%.',
-                      'Expanded the online patient handover system implementation across the entire surgical department, improving care coordination.',
-                      'Utilised data analysis and patient management software to enhance care delivery and patient outcomes.',
-                      'Contributed to multidisciplinary team meetings, improving patient care plan efficiency by 20%.',
-                      'Achieved an increased 95% patient satisfaction rate through improving patient information access.',
-                      'Developed a phone attachment for the FNE scope via 3D modeling and printing, improving diagnostic capabilities in the ENT department.',
-                    ]
-                  }
-                ].map((job, index) => (
-                  <motion.div 
-                    key={`job-${index}`}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className={`${darkMode ? 'bg-black' : 'bg-white'} rounded-lg shadow-lg p-8 transition-all duration-300 hover:shadow-xl backdrop-blur-md bg-opacity-80`}
-                  >
-                    <h3 className={`text-2xl font-semibold mb-4 ${darkMode ? 'bg-chartreuse text-deepBlack' : 'bg-deepBlue text-white'} inline-block px-4 py-2 rounded`}>
-                      {job.title}
-                    </h3>
-                    <p className="text-xl mb-2">{job.company}</p>
-                    <p className="text-lg mb-4 opacity-75">{job.date}</p>
-                    <ul className="list-disc list-inside space-y-2">
-                      {job.description.map((item, i) => (
-                        <li key={`job-${index}-desc-${i}`} className="text-base">{item}</li>
-                      ))}
+
+                {/* Clinical Data Scientist and AI Research Fellow */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className={`${darkMode ? 'bg-black' : 'bg-white'} rounded-lg shadow-lg p-8 transition-all duration-300 hover:shadow-xl backdrop-blur-md bg-opacity-80`}
+                >
+                  <h3 className={`text-2xl font-semibold mb-4 ${darkMode ? 'bg-chartreuse text-deepBlack' : 'bg-deepBlue text-white'} inline-block px-4 py-2 rounded`}>
+                    Clinical Data Scientist and AI Research Fellow
+                  </h3>
+                  <p className="text-xl mb-2">Lancashire and South Cumbria Secure Data Environment Programme · Part-time</p>
+                  <p className="text-lg mb-2 opacity-75">Dec 2024 – Present · 7 mos</p>
+                  <p className="text-base mb-2 opacity-75">Hybrid</p>
+                  <ul className="list-disc list-inside ml-4 mt-4 space-y-2">
+                    <li>
+                      Integrated transformer-based NLP into a federated OMOP CDM workflow, reverse-engineering Achilles SQL in Jupyter notebooks to extract structured clinical concepts from free-text notes.
+                    </li>
+                    <li>
+                      Expanded and tuned OMOP CDM across multiple NHS trusts, mapping local codes to SNOMED-CT and automating ETL pipelines to cut data-to-insight time.
+                    </li>
+                    <li>
+                      Built low-code web dashboards and a natural-language-to-SQL interface, enabling clinicians to query cohorts, visualise trends and generate reports without coding.
+                    </li>
+                    <li>
+                      Collaborated with clinical and technical colleagues to refine prompt designs, ensure usability and embed solutions seamlessly into existing NHS systems.
+                    </li>
+                  </ul>
+                </motion.div>
+
+                {/* Medical Doctor */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className={`${darkMode ? 'bg-black' : 'bg-white'} rounded-lg shadow-lg p-8 transition-all duration-300 hover:shadow-xl backdrop-blur-md bg-opacity-80`}
+                >
+                  <h3 className={`text-2xl font-semibold mb-4 ${darkMode ? 'bg-chartreuse text-deepBlack' : 'bg-deepBlue text-white'} inline-block px-4 py-2 rounded`}>
+                    Medical Doctor
+                  </h3>
+                  <p className="text-xl mb-2">Lancashire Teaching Hospitals NHS Foundation Trust · Full-time</p>
+                  <p className="text-lg mb-2 opacity-75">Aug 2023 – Present · 1 yr 11 mos</p>
+                  <p className="text-base mb-2 opacity-75">Lancashire, England, United Kingdom · On-site</p>
+                  <div className="mt-4 space-y-2">
+                    <p className="font-semibold">Foundation Year 2 Doctor | Aug 2024 – Present</p>
+                    <ul className="list-disc list-inside ml-4">
+                      <li>
+                        <strong>ICU (Aug 2024 – Dec 2024):</strong> Performed ultrasound-guided central lines and arterial lines, managed patients with multi-organ failure and sepsis, contributed to daily rounds and M&amp;M reviews.
+                      </li>
+                      <li>
+                        <strong>Community GP (Dec 2024 – Apr 2025):</strong> Delivered primary care in underserved urban communities, managed long-term conditions (diabetes, COPD, hypertension), conducted home visits and virtual consultations, and worked with social prescribers and mental-health teams to tackle social determinants of health.
+                      </li>
+                      <li>
+                        <strong>Psychiatry, The Harbour Inpatient Unit (Apr 2025 – Present):</strong> Clerking and ongoing care for inpatients with severe affective and psychotic disorders, carrying out risk assessments, leading MDT ward rounds, prescribing and monitoring psychotropic medications, and facilitating therapeutic groups and family liaison.
+                      </li>
                     </ul>
-                  </motion.div>
-                ))}
+                    <p className="font-semibold mt-4">Foundation Year 1 Doctor | Aug 2023 – Aug 2024</p>
+                    <ul className="list-disc list-inside ml-4">
+                      <li>
+                        <strong>Otolaryngology:</strong> Managed a range of ENT conditions, assisted in robotic and open surgeries, performed flexible nasoendoscopy and co-authored patient education materials.
+                      </li>
+                      <li>
+                        <strong>Gastroenterology:</strong> Provided specialised care for complex GI cases, served on the on-call medical and crash teams, and implemented cloud-based documentation workflows to improve efficiency.
+                      </li>
+                      <li>
+                        <strong>Upper GI Surgery:</strong> Participated in emergency and elective procedures, supported on-call surgical teams, enhanced handover and documentation via cloud tools, and managed pre- and post-operative patient care.
+                      </li>
+                    </ul>
+                  </div>
+                </motion.div>
               </div>
             </motion.div>
           )}
@@ -112,6 +137,26 @@ export default function ExperienceProjects({ darkMode, activeTab, setActiveTab }
               id="projects"
             >
               {[
+                {
+                  title: "Federated OMOP CDM NLP Pipeline",
+                  description: "Integrated transformer-based NLP into a federated OMOP CDM workflow, reverse-engineering Achilles SQL in Jupyter notebooks to extract structured clinical concepts from free-text notes.",
+                  tech: ["NLP", "Transformers", "OMOP CDM", "Jupyter", "SQL", "Python"]
+                },
+                {
+                  title: "Multi-Trust OMOP CDM Expansion & Automation",
+                  description: "Expanded and tuned OMOP CDM across multiple NHS trusts, mapping local codes to SNOMED-CT and automating ETL pipelines to cut data-to-insight time.",
+                  tech: ["OMOP CDM", "ETL", "SNOMED-CT", "Automation", "Python"]
+                },
+                {
+                  title: "Low-Code Clinical Analytics Platform",
+                  description: "Built low-code web dashboards and a natural-language-to-SQL interface, enabling clinicians to query cohorts, visualise trends, and generate reports without coding.",
+                  tech: ["Dashboards", "NLP", "SQL", "React", "UX/UI"]
+                },
+                {
+                  title: "MCP Server Pipelines for OMOP CDM Navigation",
+                  description: "Built MCP server pipelines for navigating OMOP CDM, including agent-to-agent pipelines to interact with MCP servers and expand OMOP CDM capabilities.",
+                  tech: ["MCP Server", "OMOP CDM", "Pipelines", "Agent Systems", "Python"]
+                },
                 {
                   title: "CareTrack: Seamless Care Transitions",
                   description: "Developed a digital platform to streamline patient data sharing between care homes and hospitals, reducing hospital readmissions by 20%.",
