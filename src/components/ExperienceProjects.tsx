@@ -154,3 +154,35 @@ export default function ExperienceProjects({ darkMode, activeTab, setActiveTab }
     </motion.section>
   );
 }
+
+const experiences = [
+    {
+        title: "Clinical Data Scientist and AI Research Fellow",
+        company: "Lancashire and South Cumbria Secure Data Environment Programme · Part-time",
+        date: "Dec 2024 - Present · 7 mos",
+        location: "Hybrid",
+        description: [
+            "Integrated transformer-based NLP into a federated OMOP CDM workflow, reverse-engineering Achilles SQL in Jupyter notebooks to extract structured clinical concepts from free-text notes.",
+            "Expanded and tuned OMOP CDM across multiple NHS trusts, mapping local codes to SNOMED-CT and automating ETL pipelines to cut data-to-insight time.",
+            "Built low-code web dashboards and a natural-language-to-SQL interface, enabling clinicians to query cohorts, visualise trends and generate reports without coding.",
+            "Collaborated with clinical and technical colleagues to refine prompt designs, ensure usability and embed solutions seamlessly into existing NHS systems."
+        ]
+    },
+    {
+        title: "Medical Doctor",
+        company: "Lancashire Teaching Hospitals NHS Foundation Trust · Full-time",
+        date: "Aug 2023 - Present",
+        location: "On-site, Lancashire, England, United Kingdom",
+        description: [
+            "Foundation Year 2 Doctor (Aug 2024 – Present):",
+            "• ICU (Aug 2024 – Dec 2024): Performed ultrasound-guided central lines and arterial lines, managed patients with multi-organ failure and sepsis, contributed to daily rounds and M&M reviews.",
+            "• Community GP (Dec 2024 – Apr 2025): Delivered primary care in underserved urban communities, managed long-term conditions (diabetes, COPD, hypertension), conducted home visits and virtual consultations.",
+            "• Psychiatry, The Harbour Inpatient Unit (Apr 2025 – Present): Clerking and ongoing care for inpatients with severe affective and psychotic disorders, carried out risk assessments, led MDT ward rounds, prescribed and monitored psychotropic medications, and facilitated therapeutic groups and family liaison.",
+            "",
+            "Foundation Year 1 Doctor (Aug 2023 – Aug 2024):",
+            "• Otolaryngology: Managed a range of ENT conditions, assisted in robotic and open surgeries, performed flexible nasoendoscopy and co-authored patient education materials.",
+            "• Gastroenterology: Provided specialised care for complex GI cases, served on the on-call medical and crash teams, and implemented cloud-based documentation workflows to improve efficiency.",
+            "• Upper GI Surgery: Participated in emergency and elective procedures, supported on-call surgical teams, enhanced handover and documentation via cloud tools, and managed pre- and post-operative patient care."
+        ]
+    }
+];
