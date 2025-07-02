@@ -156,6 +156,11 @@ export default function ExperienceProjects({ darkMode, activeTab, setActiveTab }
                   title: "Cloud-Based Handover System",
                   description: "Transitioned from a static, local document to a cloud-based solution using SharePoint and Azure, enabling real-time collaboration for seamless staff handovers and improving efficiency by 40%.",
                   tech: ["Azure", "SharePoint", "Cloud Solutions", "Security"]
+                },
+                {
+                  title: "FastOMOP: Open-Source A2A Framework & MCP Server",
+                  description: "Developed and open-sourced FastOMOP, a Model Context Protocol (MCP) server enabling secure, role-based LLM access to OMOP CDM databases. The platform translates natural-language queries into optimized SQL, automates cohort discovery and analytics, integrates SNOMED-CT for semantic consistency, and enforces governance and audit logging—accelerating clinical research across NHS sites.",
+                  tech: ["TypeScript", "Node.js", "SQL", "NLP", "OMOP CDM", "SNOMED-CT", "Security", "Open Source"]
                 }
               ].map((project, index) => (
                 <motion.div
