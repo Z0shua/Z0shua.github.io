@@ -59,7 +59,12 @@ export default function Component() {
   };
 
   const handleDownloadCV = () => {
-    alert("Downloading CV... (This is a placeholder action)");
+    const link = document.createElement('a');
+    link.href = '/CV%20June%202025.pdf';
+    link.download = 'CV June 2025.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   useEffect(() => {
