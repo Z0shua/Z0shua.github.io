@@ -40,10 +40,10 @@ export default function About({ darkMode }: AboutProps) {
               className="md:w-2/3"
             >
               <p className="text-base md:text-lg mb-4 md:mb-6 leading-relaxed">
-                Hi, I'm Josh, a doctor and data scientist dedicated to innovating efficient patient care through machine learning and health-tech. By day (and often by nights), I'm a doctor working in the NHS, and outside of clinical hours, I focus on transforming complex healthcare data into actionable insights.
+                I'm a doctor and AI researcher building trustworthy clinical AI that fits how clinicians think and work. My PhD research at King's College London's MAI Lab explores methods for temporal electronic health records, including patient-aware transformers, time-series imputation, RLHF and reward modelling, bias mitigation, healthcare NLP with OMOP CDM, and clinician-in-the-loop validation.
               </p>
               <p className="text-base md:text-lg leading-relaxed">
-                When I'm not in the hospital or coding, you can find me exploring the latest developments in health-tech, contributing to open-source medical projects, or sharing my knowledge through medical data science workshops and presentations.
+                This work aims to improve accuracy, explainability, and safety for clinical predictions and synthetic data generation. I split my time between Cleveland Clinic London and the DRIVE health BHI Data Lab.
               </p>
             </motion.div>
           </div>
