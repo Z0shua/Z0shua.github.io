@@ -51,16 +51,16 @@ export default function Banner({ darkMode, handleDownloadCV }: BannerProps) {
           >
             <Linkedin size={24} className="md:w-8 md:h-8" />
           </motion.a>
-          <motion.a 
-            whileHover={{ scale: 1.2, rotate: 360 }}
-            whileTap={{ scale: 0.9 }}
-            href="https://github.com" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className={`${darkMode ? 'text-chartreuse' : 'text-deepBlue'} hover:opacity-80 transition-opacity duration-300`}
-          >
-            <Github size={24} className="md:w-8 md:h-8" />
-          </motion.a>
+           <motion.a 
+             whileHover={{ scale: 1.2, rotate: 360 }}
+             whileTap={{ scale: 0.9 }}
+             href="https://github.com/Z0shua" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             className={`${darkMode ? 'text-chartreuse' : 'text-deepBlue'} hover:opacity-80 transition-opacity duration-300`}
+           >
+             <Github size={24} className="md:w-8 md:h-8" />
+           </motion.a>
         </div>
         <motion.button
           whileHover={{ scale: 1.05 }}
