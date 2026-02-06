@@ -54,57 +54,45 @@ export default function ExperienceProjects({ darkMode, activeTab, setActiveTab }
               <div className="space-y-12">
                 {[
                   {
-                    title: 'Clinical Data Scientist and AI Research Fellow',
-                    company: 'Lancashire and South Cumbria Secure Data Environment Programme',
-                    date: 'Dec 2024 - Present (8 months)',
+                    title: 'Neuroscience Fellow & Clinical Digital Health Fellow',
+                    company: 'Cleveland Clinic London',
+                    date: 'Sep 2025 – Present',
                     description: [
-                      'Architected and open-sourced OMCP, a Model Context Protocol server that securely brokers LLM access to OMOP CDM databases, handling role-based authentication, natural-language-to-SQL translation, and plugin-ready extensions for audit-grade analytics.',
-                      'Integrated transformer-based NLP into a federated OMOP CDM workflow, reverse-engineering Achilles SQL in Jupyter notebooks to extract structured clinical concepts from free-text notes.',
-                      'Expanded and tuned OMOP CDM across multiple NHS trusts, mapping local codes to SNOMED-CT and automating ETL pipelines to cut data-to-insight time.',
-                      'Built low-code web dashboards and a natural-language-to-SQL interface, enabling clinicians to query cohorts, visualise trends and generate reports without coding.',
-                      'Collaborated with clinical and technical colleagues to refine prompt designs, ensure usability and embed solutions seamlessly into existing NHS systems.'
+                      'Providing comprehensive neurological care across acute and chronic settings.',
+                      'Collaborating with data science team on OMOP CDM implementation for clinical research infrastructure.',
+                      'Translating clinical requirements into actionable data architecture specifications.'
                     ]
                   },
                   {
-                    title: 'NHS Clinical Entrepreneur',
-                    company: 'NHS Clinical Entrepreneur Programme',
-                    date: 'Apr 2025 - Present (4 months)',
+                    title: 'Clinician Researcher & PhD Candidate',
+                    company: 'DRIVE-Health Centre for Doctoral Training, King\'s College London',
+                    date: 'Oct 2025 – Present',
                     description: [
-                      'Cohort 9 - Dementia Innovator.'
+                      'Conducting EPSRC-funded research on ML approaches for clinical decision-making.',
+                      'Focusing on reinforcement learning, explainable AI, and trustworthy AI in healthcare.',
+                      'Designing data-driven methodologies for model behavior analysis.'
+                    ]
+                  },
+                  {
+                    title: 'Clinical Data Scientist & Data Research Engineer',
+                    company: 'Lancashire and South Cumbria Secure Data Environment Programme',
+                    date: 'Nov 2024 – Oct 2025',
+                    description: [
+                      'Architected scalable ETL pipelines for multimodal data ingestion and processing across federated NHS trusts.',
+                      'Expanded OMOP CDM across multiple NHS organizations; automated ETL reducing data-to-insight time.',
+                      'Integrated transformer-based NLP extracting clinical concepts from unstructured notes.',
+                      'Built validation pipelines assessing quality, diversity, and relevance across NHS data.',
+                      'Created low-code dashboards and natural-language-to-SQL interfaces for stakeholders.',
+                      'Architected OMCP—Model Context Protocol server for secure LLM access to OMOP databases.'
                     ]
                   },
                   {
                     title: 'Medical Doctor',
                     company: 'Lancashire Teaching Hospitals NHS Foundation Trust',
-                    date: 'Aug 2023 - Present (2 years)',
+                    date: 'Aug 2023 – Aug 2025',
                     description: [
-                      'Foundation Year 2 Doctor | Aug 2024 – Present',
-                      'ICU (Aug 2024 – Dec 2024): Performed ultrasound-guided central lines and arterial lines, managed patients with multi-organ failure and sepsis, contributed to daily rounds and M&M reviews.',
-                      'Community GP (Dec 2024 – Apr 2025): Delivered primary care in underserved urban communities, managed long-term conditions (diabetes, COPD, hypertension), conducted home visits and virtual consultations, and worked with social prescribers and mental-health teams to tackle social determinants of health.'
-                    ]
-                  },
-                  {
-                    title: 'Data Scientist',
-                    company: 'Lancashire and South Cumbria Integrated Care Board (ICB)',
-                    date: 'Jan 2024 - Present',
-                    description: [
-                      'Managed the data engineering of OMOP OHDSI database with integration of LLMs to facilitate ease of access and query generation using NLP, making large health data more accessible.',
-                      'Collaborated with clinical teams to develop data models that enhance virtual healthcare, improving the accessibility of care through technological innovation.',
-                      'Implemented machine learning algorithms to predict patient readmission risks, resulting in a 20% reduction in unnecessary readmissions.',
-                      'Developed a real-time dashboard for resource allocation, improving emergency response times by 15%.'
-                    ]
-                  },
-                  {
-                    title: 'Foundation Doctor',
-                    company: 'Lancashire Teaching Hospitals',
-                    date: 'Aug 2023 - Present',
-                    description: [
-                      'Initiated cloud-based solutions for patient handovers in the Gastro department, streamlining workflow and reducing errors by 15%.',
-                      'Expanded the online patient handover system implementation across the entire surgical department, improving care coordination.',
-                      'Utilised data analysis and patient management software to enhance care delivery and patient outcomes.',
-                      'Contributed to multidisciplinary team meetings, improving patient care plan efficiency by 20%.',
-                      'Achieved an increased 95% patient satisfaction rate through improving patient information access.',
-                      'Developed a phone attachment for the FNE scope via 3D modeling and printing, improving diagnostic capabilities in the ENT department.'
+                      'ICU, Community Primary Care, Psychiatry, Otolaryngology, Gastroenterology, Upper GI Surgery.',
+                      'Managed complex clinical cases and implemented cloud-based documentation workflows improving efficiency.'
                     ]
                   }
                 ].map((job, index) => (
