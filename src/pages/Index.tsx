@@ -7,6 +7,7 @@ import About from '../components/About';
 import ExperienceProjects from '../components/ExperienceProjects';
 import Education from '../components/Education';
 import Contact from '../components/Contact';
+import ParallaxBackground from '../components/ParallaxBackground';
 
 export default function Component() {
   const [activeSection, setActiveSection] = useState('home');
@@ -76,8 +77,9 @@ export default function Component() {
   }, [darkMode]);
 
   return (
-    <div className={`min-h-screen ${darkMode ? 'bg-deepBlack text-white' : 'bg-white text-black'} transition-colors duration-300`}>
-      <Header 
+    <div className={`min-h-screen ${darkMode ? 'bg-deepBlack text-white' : 'bg-white text-black'} transition-colors duration-300 relative`}>
+      <ParallaxBackground darkMode={darkMode} />
+      <Header
         activeSection={activeSection}
         darkMode={darkMode}
         setDarkMode={setDarkMode}
