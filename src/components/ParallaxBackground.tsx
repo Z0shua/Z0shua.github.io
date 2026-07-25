@@ -9,7 +9,7 @@ export default function ParallaxBackground({ darkMode }: ParallaxBackgroundProps
   const mouse = useMouseParallax(0.015);
 
   return (
-    <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+    <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
       {/* Large gradient orb - moves slower */}
       <motion.div
         className={`absolute w-[600px] h-[600px] rounded-full blur-3xl opacity-20 ${
@@ -64,12 +64,11 @@ export default function ParallaxBackground({ darkMode }: ParallaxBackgroundProps
         transition={{ type: 'spring', stiffness: 60, damping: 25 }}
       />
 
-      {/* Subtle grid pattern overlay */}
-      <div 
-        className={`absolute inset-0 opacity-[0.02] ${darkMode ? 'bg-white' : 'bg-black'}`}
+      {/* Subtle diagonal-hatch pattern overlay (inspired by zhang.ao) */}
+      <div
+        className="absolute inset-0"
         style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)`,
-          backgroundSize: '40px 40px',
+          backgroundImage: `repeating-linear-gradient(135deg, ${darkMode ? 'rgba(255,255,255,0.06)' : 'rgba(17,18,23,0.08)'} 0px, ${darkMode ? 'rgba(255,255,255,0.06)' : 'rgba(17,18,23,0.08)'} 1px, transparent 1px, transparent 12px)`,
         }}
       />
     </div>

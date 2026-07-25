@@ -13,7 +13,7 @@ import ParallaxBackground from '../components/ParallaxBackground';
 export default function Component() {
   const [activeSection, setActiveSection] = useState('home');
   const [showBackToTop, setShowBackToTop] = useState(false);
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
   const [activeTab, setActiveTab] = useState('experience');
 
   const { scrollYProgress } = useScroll();
@@ -78,8 +78,9 @@ export default function Component() {
   }, [darkMode]);
 
   return (
-    <div className={`min-h-screen ${darkMode ? 'bg-deepBlack text-white' : 'bg-white text-black'} transition-colors duration-300 relative`}>
+    <div className={`min-h-screen ${darkMode ? 'bg-deepBlack text-white' : 'bg-[#fafafa] text-black'} transition-colors duration-300 relative`}>
       <ParallaxBackground darkMode={darkMode} />
+      <div className="relative z-10">
       <Header
         activeSection={activeSection}
         darkMode={darkMode}
@@ -105,6 +106,7 @@ export default function Component() {
       <Education darkMode={darkMode} />
 
       <Contact darkMode={darkMode} />
+      </div>
 
       {/* Back to Top Button */}
       <AnimatePresence>

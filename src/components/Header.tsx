@@ -14,7 +14,7 @@ export default function Header({ activeSection, darkMode, setDarkMode, scrollToS
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ type: 'spring', stiffness: 100 }}
-      className={`fixed top-0 left-0 right-0 ${darkMode ? 'bg-deepBlack' : 'bg-white'} z-50 transition-colors duration-300`}
+      className={`fixed top-0 left-0 right-0 ${darkMode ? 'bg-deepBlack/80' : 'bg-[#fafafa]/80'} backdrop-blur-md z-50 transition-colors duration-300`}
     >
       <nav className="container mx-auto px-4 py-3 md:py-4 flex justify-between items-center">
         <div className="overflow-x-auto flex-grow">

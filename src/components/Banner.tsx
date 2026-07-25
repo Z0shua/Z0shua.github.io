@@ -13,7 +13,7 @@ export default function Banner({ darkMode, handleDownloadCV }: BannerProps) {
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
       id="home" 
-      className={`pt-20 md:pt-32 pb-12 md:pb-20 ${darkMode ? 'bg-deepBlack' : 'bg-white'}`}
+      className="pt-20 md:pt-32 pb-12 md:pb-20"
     >
       <motion.div className="container mx-auto px-4 text-center">
         <motion.h1 
