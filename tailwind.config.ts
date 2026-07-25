@@ -58,7 +58,8 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Space Grotesk', 'sans-serif'],
+        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
       },
     },
   },
