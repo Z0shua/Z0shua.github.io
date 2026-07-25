@@ -30,7 +30,7 @@ export default function Banner({ darkMode, handleDownloadCV }: BannerProps) {
           transition={{ duration: 0.5, delay: 0.4 }}
           className={`text-2xl md:text-3xl lg:text-4xl mb-8 md:mb-12 ${darkMode ? 'text-white' : 'text-black'} font-light font-['Space_Grotesk']`}
         >
-          Doctor & Data Scientist
+Medical Doctor & LLM Researcher
         </motion.p>
         <div className="flex justify-center space-x-4 md:space-x-6 mb-8 md:mb-12">
           <motion.a 
@@ -57,9 +57,21 @@ export default function Banner({ darkMode, handleDownloadCV }: BannerProps) {
              href="https://github.com/Z0shua" 
              target="_blank" 
              rel="noopener noreferrer" 
+             aria-label="GitHub personal"
              className={`${darkMode ? 'text-chartreuse' : 'text-deepBlue'} hover:opacity-80 transition-opacity duration-300`}
            >
              <Github size={24} className="md:w-8 md:h-8" />
+           </motion.a>
+           <motion.a 
+             whileHover={{ scale: 1.2, rotate: 360 }}
+             whileTap={{ scale: 0.9 }}
+             href="https://github.com/fastomcp/omcp_py" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             aria-label="OMCP repository"
+             className={`${darkMode ? 'text-chartreuse' : 'text-deepBlue'} hover:opacity-80 transition-opacity duration-300 text-sm md:text-base font-medium underline underline-offset-4`}
+           >
+             OMCP
            </motion.a>
         </div>
         <motion.button

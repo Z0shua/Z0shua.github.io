@@ -6,6 +6,8 @@ import Banner from '../components/Banner';
 import About from '../components/About';
 import ExperienceProjects from '../components/ExperienceProjects';
 import Education from '../components/Education';
+import Skills from '../components/Skills';
+import Publications from '../components/Publications';
 import Contact from '../components/Contact';
 import ParallaxBackground from '../components/ParallaxBackground';
 
@@ -22,7 +24,7 @@ export default function Component() {
     const scrollPosition = window.scrollY;
     setShowBackToTop(scrollPosition > 300);
 
-    const sections = ['home', 'about', 'experience-projects', 'education', 'contact'];
+    const sections = ['home', 'about', 'experience-projects', 'skills', 'publications', 'education', 'contact'];
     for (const section of sections) {
       const element = document.getElementById(section);
       if (element) {
@@ -61,8 +63,8 @@ export default function Component() {
 
   const handleDownloadCV = () => {
     const link = document.createElement('a');
-    link.href = '/CV%20June%202025.pdf';
-    link.download = 'CV June 2025.pdf';
+    link.href = '/CV_July_2026.pdf';
+    link.download = 'Zhangshu_Jiang_CV_July_2026.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -98,6 +100,10 @@ export default function Component() {
         activeTab={activeTab}
         setActiveTab={setActiveTab}
       />
+
+      <Skills darkMode={darkMode} />
+
+      <Publications darkMode={darkMode} />
 
       <Education darkMode={darkMode} />
 

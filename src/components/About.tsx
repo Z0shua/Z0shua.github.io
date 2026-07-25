@@ -40,10 +40,10 @@ export default function About({ darkMode }: AboutProps) {
               className="md:w-2/3"
             >
               <p className="text-base md:text-lg mb-4 md:mb-6 leading-relaxed">
-                I'm a doctor and AI researcher building trustworthy clinical AI that fits how clinicians think and work. My PhD research at King's College London's MAI Lab explores methods for temporal electronic health records, including patient-aware transformers, time-series imputation, RLHF and reward modelling, bias mitigation, healthcare NLP with OMOP CDM, and clinician-in-the-loop validation.
+                I'm an LLM evaluation researcher and systems builder, and a medical doctor, working on post-training, benchmark design, and retrieval-augmented systems for high-stakes domains. My PhD at King's College London examines long-horizon model behaviour over longitudinal clinical data: QLoRA fine-tuning of open-source models with Unsloth, rubric-based evaluation of factuality and grounding, and multi-step reasoning assessment.
               </p>
               <p className="text-base md:text-lg leading-relaxed">
-                This work aims to improve accuracy, explainability, and safety for clinical predictions and synthetic data generation. I split my time between Cleveland Clinic London and the DRIVE health BHI Data Lab.
+                I built and shipped OMCP, an open-source natural-language-to-SQL system adopted by five research teams, and currently evaluate frontier model outputs as a Medical Fellow at Scale AI. My clinical background means I notice when an answer sounds right but isn't.
               </p>
             </motion.div>
           </div>

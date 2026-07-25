@@ -34,11 +34,11 @@ export default function Education({ darkMode }: EducationProps) {
                 </span>
               </h3>
               <p className="text-xl mb-2">MPhil/PhD in Health Data Science and Medical AI</p>
-              <p className="text-lg mb-6 opacity-75">Oct 2025 – Oct 2029 | EPSRC-funded</p>
+              <p className="text-lg mb-6 opacity-75">2025 – 2029 (expected) | EPSRC DRIVE-Health CDT</p>
               <ul className="list-disc list-inside space-y-4">
-                <li className="text-base">Conducting EPSRC-funded research on ML approaches for clinical decision-making.</li>
-                <li className="text-base">Focusing on reinforcement learning, explainable AI, and trustworthy AI in healthcare.</li>
-                <li className="text-base">Designing data-driven methodologies for model behavior analysis.</li>
+                <li className="text-base">Focus: LLM evaluation, post-training, long-horizon benchmarks, counterfactual reasoning, and retrieval-augmented systems.</li>
+                <li className="text-base">Building long-horizon benchmarks for temporal and counterfactual reasoning over longitudinal EHRs.</li>
+                <li className="text-base">QLoRA/PEFT fine-tuning of Qwen-family models with Unsloth; rubric-based evaluation of factuality, grounding, and adversarial robustness.</li>
               </ul>
             </motion.div>
 
@@ -55,11 +55,11 @@ export default function Education({ darkMode }: EducationProps) {
                 </span>
               </h3>
               <p className="text-xl mb-2">MBChB – Medicine</p>
-              <p className="text-lg mb-6 opacity-75">Sep 2018 – Jun 2023</p>
+              <p className="text-lg mb-6 opacity-75">2018 – 2023</p>
               <ul className="list-disc list-inside space-y-4">
-                <li className="text-base">Mentored aspiring healthcare professionals as part of the BAME Medics program, fostering diversity and inclusion in medicine.</li>
-                <li className="text-base">Conducted research on AI-assisted medical imaging analysis.</li>
-                <li className="text-base">Delivered peer lectures on clinical topics, supporting fellow students in their medical education.</li>
+                <li className="text-base">GMC full registration with licence to practise.</li>
+                <li className="text-base">Mentored aspiring healthcare professionals as part of the BAME Medics program.</li>
+                <li className="text-base">Conducted research on AI-assisted medical imaging analysis and delivered peer lectures on clinical topics.</li>
               </ul>
             </motion.div>
           </div>
