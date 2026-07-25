@@ -7,7 +7,6 @@ import About from '../components/About';
 import ExperienceProjects from '../components/ExperienceProjects';
 import Education from '../components/Education';
 import Skills from '../components/Skills';
-import Publications from '../components/Publications';
 import Contact from '../components/Contact';
 import ParallaxBackground from '../components/ParallaxBackground';
 
@@ -24,7 +23,7 @@ export default function Component() {
     const scrollPosition = window.scrollY;
     setShowBackToTop(scrollPosition > 300);
 
-    const sections = ['home', 'about', 'experience-projects', 'skills', 'publications', 'education', 'contact'];
+    const sections = ['home', 'about', 'experience-projects', 'skills', 'education', 'contact'];
     for (const section of sections) {
       const element = document.getElementById(section);
       if (element) {
@@ -102,8 +101,6 @@ export default function Component() {
       />
 
       <Skills darkMode={darkMode} />
-
-      <Publications darkMode={darkMode} />
 
       <Education darkMode={darkMode} />
 

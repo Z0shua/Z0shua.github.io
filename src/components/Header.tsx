@@ -19,7 +19,7 @@ export default function Header({ activeSection, darkMode, setDarkMode, scrollToS
       <nav className="container mx-auto px-4 py-3 md:py-4 flex justify-between items-center">
         <div className="overflow-x-auto flex-grow">
           <ul className="flex justify-start md:justify-center space-x-4 md:space-x-8 min-w-max">
-            {['Home', 'About', 'Experience', 'Projects', 'Skills', 'Publications', 'Education'].map((item) => (
+            {['Home', 'About', 'Experience', 'Projects', 'Skills', 'Education'].map((item) => (
               <li key={item}>
                 <motion.button
                   whileHover={{ scale: 1.1 }}
