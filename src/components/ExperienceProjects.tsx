@@ -143,7 +143,7 @@ export default function ExperienceProjects({ darkMode, activeTab, setActiveTab }
                   title: "OMCP: Open-source LLM Systems Tool",
                   description: "Open-source Model Context Protocol server for auditable LLM access to structured databases via natural-language-to-SQL. Audit logging, role-based access control, and privilege separation. Adopted by five research teams; cut partner onboarding time by ~60%.",
                   tech: ["Python", "FastAPI", "MCP", "NL-to-SQL", "SQL", "Docker", "Open Source"],
-                  link: "https://github.com/fastomcp/omcp_py"
+                  link: "https://github.com/fastomop/omcp_py"
                 },
                 {
                   title: "Dyad Labs (concept and design phase)",

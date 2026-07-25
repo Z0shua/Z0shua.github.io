@@ -65,7 +65,7 @@ Medical Doctor & LLM Researcher
            <motion.a 
              whileHover={{ scale: 1.2, rotate: 360 }}
              whileTap={{ scale: 0.9 }}
-             href="https://github.com/fastomcp/omcp_py" 
+             href="https://github.com/fastomop/omcp_py" 
              target="_blank" 
              rel="noopener noreferrer" 
              aria-label="OMCP repository"
