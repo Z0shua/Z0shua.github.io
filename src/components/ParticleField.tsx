@@ -2,9 +2,11 @@ import { useEffect, useRef } from 'react';
 
 interface ParticleFieldProps {
   darkMode: boolean;
-  /** Visual intensity — 'primary' for hero, 'faint' for secondary reuse */
+  /** Visual intensity — 'primary' for hero emphasis, 'faint' for restrained site-wide ambience */
   variant?: 'primary' | 'faint';
   className?: string;
+  /** If true, sizes to the full viewport height instead of the parent container (for a fixed, site-wide layer) */
+  fullViewport?: boolean;
 }
 
 interface Node {
@@ -20,7 +22,7 @@ interface Node {
  * slow-drifting nodes with faint connecting traces when close together.
  * Tunable constants are grouped at the top of the component.
  */
-export default function ParticleField({ darkMode, variant = 'primary', className = '' }: ParticleFieldProps) {
+export default function ParticleField({ darkMode, variant = 'primary', className = '', fullViewport = false }: ParticleFieldProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const mouseRef = useRef({ x: -9999, y: -9999 });
 
@@ -54,10 +56,15 @@ export default function ParticleField({ darkMode, variant = 'primary', className
     let lastTime = performance.now();
 
     const resize = () => {
-      const rect = canvas.getBoundingClientRect();
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      width = rect.width;
-      height = rect.height;
+      if (fullViewport) {
+        width = window.innerWidth;
+        height = window.innerHeight;
+      } else {
+        const rect = canvas.getBoundingClientRect();
+        width = rect.width;
+        height = rect.height;
+      }
       canvas.width = width * dpr;
       canvas.height = height * dpr;
       ctx.scale(dpr, dpr);
@@ -160,13 +167,13 @@ export default function ParticleField({ darkMode, variant = 'primary', className
       window.removeEventListener('pointerleave', handlePointerLeave);
       if (rafId) cancelAnimationFrame(rafId);
     };
-  }, [darkMode, variant]);
+  }, [darkMode, variant, fullViewport]);
 
   return (
     <canvas
       ref={canvasRef}
       aria-hidden="true"
-      className={`absolute inset-0 w-full h-full pointer-events-none ${className}`}
+      className={`${fullViewport ? 'fixed top-0 left-0' : 'absolute inset-0'} w-full h-full pointer-events-none ${className}`}
     />
   );
 }

@@ -11,7 +11,7 @@ interface BannerProps {
 export default function Banner({ darkMode, handleDownloadCV, scrollToSection }: BannerProps) {
   return (
     <section id="home" className="relative overflow-hidden">
-      {/* Particle field, masked so it never sits behind dense copy */}
+      {/* Extra density layer on top of the site-wide faint field, masked so it never sits behind dense copy */}
       <div
         className="absolute inset-0"
         style={{
@@ -38,7 +38,7 @@ export default function Banner({ darkMode, handleDownloadCV, scrollToSection }: 
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
-          className={`font-serif font-medium leading-[0.98] tracking-tight text-[13vw] md:text-[6.4vw] lg:text-[6rem] max-w-4xl ${
+          className={`font-sans font-medium leading-[0.98] tracking-tight text-[11vw] md:text-[5.4vw] lg:text-[5rem] max-w-4xl ${
             darkMode ? 'text-bone' : 'text-ink'
           }`}
         >

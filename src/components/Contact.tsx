@@ -1,6 +1,5 @@
 import { Mail, Github, Linkedin, ArrowUpRight } from 'lucide-react';
 import { motion } from 'framer-motion';
-import ParticleField from './ParticleField';
 
 interface ContactProps {
   darkMode: boolean;
@@ -9,16 +8,6 @@ interface ContactProps {
 export default function Contact({ darkMode }: ContactProps) {
   return (
     <section id="contact" className={`relative border-t overflow-hidden ${darkMode ? 'border-hairlineDark' : 'border-hairline'}`}>
-      <div
-        className="absolute inset-0"
-        style={{
-          maskImage: 'radial-gradient(ellipse 70% 60% at 50% 50%, black 0%, transparent 75%)',
-          WebkitMaskImage: 'radial-gradient(ellipse 70% 60% at 50% 50%, black 0%, transparent 75%)',
-        }}
-      >
-        <ParticleField darkMode={darkMode} variant="faint" />
-      </div>
-
       <div className="relative max-w-6xl mx-auto px-6 md:px-10 py-24 md:py-36 text-center">
         <motion.p
           initial={{ opacity: 0 }}

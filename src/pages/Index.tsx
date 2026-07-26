@@ -8,6 +8,7 @@ import ExperienceProjects from '../components/ExperienceProjects';
 import Education from '../components/Education';
 import Skills from '../components/Skills';
 import Contact from '../components/Contact';
+import ParticleField from '../components/ParticleField';
 
 const SECTIONS = ['home', 'about', 'experience', 'projects', 'skills', 'education', 'contact'];
 
@@ -61,7 +62,11 @@ export default function Component() {
   }, [darkMode]);
 
   return (
-    <div className={`min-h-screen transition-colors duration-500 ${darkMode ? 'bg-charcoal text-bone' : 'bg-paper text-ink'}`}>
+    <div className={`relative min-h-screen transition-colors duration-500 ${darkMode ? 'text-bone' : 'text-ink'}`}>
+      {/* Site-wide evidence-node field: fixed behind all content, restrained opacity */}
+      <div className={`fixed inset-0 -z-20 transition-colors duration-500 ${darkMode ? 'bg-charcoal' : 'bg-paper'}`} />
+      <ParticleField darkMode={darkMode} variant="faint" fullViewport className="-z-10" />
+
       <Header
         activeSection={activeSection}
         darkMode={darkMode}

@@ -42,9 +42,9 @@ const JOBS = [
     org: 'Lancashire and South Cumbria Secure Data Environment',
     date: 'Nov 2024 — Oct 2025',
     points: [
-      'Shipped OMCP, an open-source Model Context Protocol server for controlled natural-language access to structured databases, with audit logging, role-based access control, and privilege separation.',
-      'Built a natural-language-to-SQL pipeline with query rewriting, caching, and batching — sub-second responses across federated data sources spanning four organisations.',
-      'Packaged and documented the system for adoption across five research teams, cutting partner onboarding time by ~60%.',
+      'Led ML architecture and contributed to the design and delivery of OMCP, an open-source Model Context Protocol server for controlled natural-language access to structured databases, with audit logging, role-based access control, and privilege separation.',
+      'Built core natural-language-to-SQL workflows — query rewriting, caching, and batching — supporting sub-second responses across federated data sources spanning four organisations.',
+      'As part of the team, packaged and documented the system for adoption across five research teams, an effort that cut partner onboarding time by ~60%.',
       'Processed 2M+ records using transformer-based NLP for entity extraction and normalisation.',
     ],
   },
@@ -62,9 +62,9 @@ const JOBS = [
 const PROJECTS = [
   {
     title: 'OMCP',
-    subtitle: 'Open-source LLM systems tool',
+    subtitle: 'Open-source LLM systems tool — Lancashire & South Cumbria SDE',
     description:
-      'Model Context Protocol server for auditable LLM access to structured databases via natural-language-to-SQL. Audit logging, role-based access control, and privilege separation. Adopted by five research teams; cut partner onboarding time by ~60%.',
+      'Model Context Protocol server for auditable LLM access to structured databases via natural-language-to-SQL. Led ML architecture and contributed to core system design — audit logging, role-based access control, and privilege separation. Adopted across five research teams as a team effort, cutting partner onboarding time by ~60%.',
     tags: ['Python', 'FastAPI', 'MCP', 'NL-to-SQL', 'Open Source'],
     link: 'https://github.com/fastomop/omcp_py',
     featured: true,

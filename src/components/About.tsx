@@ -46,8 +46,9 @@ export default function About({ darkMode }: AboutProps) {
                 multi-step reasoning assessment where a confident answer and a correct one can diverge.
               </p>
               <p>
-                I built and shipped OMCP, an open-source natural-language-to-SQL system now used by five
-                research teams, and I currently evaluate frontier model outputs as a Medical Fellow at Scale AI.
+                At the Lancashire and South Cumbria Secure Data Environment, I led ML architecture for OMCP, an
+                open-source natural-language-to-SQL system the team went on to deploy across five research
+                teams, and I currently evaluate frontier model outputs as a Medical Fellow at Scale AI.
                 The clinical training is what makes me useful here: I notice when an answer sounds complete but
                 leaves out the thing that would change a decision.
               </p>
