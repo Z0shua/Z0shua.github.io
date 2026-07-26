@@ -21,7 +21,7 @@
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
     --ring: 231 100% 32%;
-    --radius: 0.5rem;
+    --radius: 0.375rem;
   }
 
   .dark {
@@ -49,10 +49,36 @@
   * {
     @apply border-border;
   }
-  
+
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-paper text-ink font-sans;
     font-feature-settings: 'ss01', 'cv11';
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .dark body {
+    @apply bg-charcoal text-bone;
+  }
+
+  ::selection {
+    background-color: rgba(61, 110, 104, 0.25);
+  }
+
+  .dark ::selection {
+    background-color: rgba(111, 189, 179, 0.25);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

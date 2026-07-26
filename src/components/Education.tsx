@@ -1,70 +1,60 @@
-import { GraduationCap } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 interface EducationProps {
   darkMode: boolean;
 }
 
+const SCHOOLS = [
+  {
+    institution: "King's College London",
+    degree: 'MPhil/PhD, Health Data Science and Medical AI',
+    date: '2025 — 2029 (expected)',
+    detail: 'EPSRC DRIVE-Health CDT. Focus: LLM evaluation, post-training, long-horizon benchmarks, counterfactual reasoning, retrieval-augmented systems.',
+  },
+  {
+    institution: 'University of Sheffield',
+    degree: 'MBChB, Medicine',
+    date: '2018 — 2023',
+    detail: 'GMC full registration with licence to practise. BAME Medics mentoring programme.',
+  },
+];
+
 export default function Education({ darkMode }: EducationProps) {
   return (
-    <motion.section 
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      id="education" 
-      className="py-20"
-    >
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold mb-12 text-center flex items-center justify-center">
-          <GraduationCap className={`mr-2 ${darkMode ? 'text-chartreuse' : 'text-deepBlue'}`} />
-          Education
-        </h2>
-        <div className="max-w-3xl mx-auto">
-          <div className="space-y-8">
-            {/* King's College London PhD */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3 }}
-              className={`${darkMode ? 'bg-black' : 'bg-white'} rounded-lg shadow-lg p-8 transition-all duration-300 hover:shadow-xl backdrop-blur-md bg-opacity-80`}
-            >
-              <h3 className="text-2xl font-semibold mb-4">
-                <span className={`${darkMode ? 'bg-chartreuse text-deepBlack' : 'bg-deepBlue text-white'} px-4 py-2 rounded`}>
-                  King's College London
-                </span>
-              </h3>
-              <p className="text-xl mb-2">MPhil/PhD in Health Data Science and Medical AI</p>
-              <p className="text-lg mb-6 opacity-75">2025 – 2029 (expected) | EPSRC DRIVE-Health CDT</p>
-              <ul className="list-disc list-inside space-y-4">
-                <li className="text-base">Focus: LLM evaluation, post-training, long-horizon benchmarks, counterfactual reasoning, and retrieval-augmented systems.</li>
-                <li className="text-base">Building long-horizon benchmarks for temporal and counterfactual reasoning over longitudinal EHRs.</li>
-                <li className="text-base">QLoRA/PEFT fine-tuning of Qwen-family models with Unsloth; rubric-based evaluation of factuality, grounding, and adversarial robustness.</li>
-              </ul>
-            </motion.div>
+    <section id="education" className={`border-t ${darkMode ? 'border-hairlineDark' : 'border-hairline'}`}>
+      <div className="max-w-6xl mx-auto px-6 md:px-10 py-24 md:py-36">
+        <div className="grid md:grid-cols-[200px_1fr] gap-10 md:gap-16">
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.5 }}
+            className={`font-mono text-[12px] tracking-[0.12em] uppercase ${darkMode ? 'text-tealDark' : 'text-teal'}`}
+          >
+            05 — Education
+          </motion.p>
 
-            {/* University of Sheffield */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3, delay: 0.1 }}
-              className={`${darkMode ? 'bg-black' : 'bg-white'} rounded-lg shadow-lg p-8 transition-all duration-300 hover:shadow-xl backdrop-blur-md bg-opacity-80`}
-            >
-              <h3 className="text-2xl font-semibold mb-4">
-                <span className={`${darkMode ? 'bg-chartreuse text-deepBlack' : 'bg-deepBlue text-white'} px-4 py-2 rounded`}>
-                  University of Sheffield
-                </span>
-              </h3>
-              <p className="text-xl mb-2">MBChB – Medicine</p>
-              <p className="text-lg mb-6 opacity-75">2018 – 2023</p>
-              <ul className="list-disc list-inside space-y-4">
-                <li className="text-base">GMC full registration with licence to practise.</li>
-                <li className="text-base">Mentored aspiring healthcare professionals as part of the BAME Medics program.</li>
-                <li className="text-base">Conducted research on AI-assisted medical imaging analysis and delivered peer lectures on clinical topics.</li>
-              </ul>
-            </motion.div>
+          <div className="max-w-2xl">
+            {SCHOOLS.map((school, i) => (
+              <motion.div
+                key={school.institution}
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.5, delay: i * 0.05 }}
+                className={`py-7 ${i !== 0 ? `border-t ${darkMode ? 'border-hairlineDark' : 'border-hairline'}` : ''}`}
+              >
+                <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1 mb-1.5">
+                  <h3 className={`font-serif text-lg ${darkMode ? 'text-bone' : 'text-ink'}`}>{school.institution}</h3>
+                  <span className={`font-mono text-[12px] ${darkMode ? 'text-bone/45' : 'text-boneMuted'}`}>{school.date}</span>
+                </div>
+                <p className={`text-[15px] mb-1.5 ${darkMode ? 'text-tealDark' : 'text-teal'}`}>{school.degree}</p>
+                <p className={`text-sm leading-relaxed font-light ${darkMode ? 'text-bone/60' : 'text-inkMuted'}`}>{school.detail}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 }

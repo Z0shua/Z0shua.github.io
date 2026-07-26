@@ -1,69 +1,67 @@
-import { Code2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 interface SkillsProps {
   darkMode: boolean;
 }
 
-const skillGroups = [
+const GROUPS = [
   {
     heading: 'LLM Post-training',
-    items: ['Python', 'PyTorch', 'Hugging Face Transformers', 'Unsloth', 'QLoRA / PEFT', 'Supervised fine-tuning', 'Instruction tuning', 'vLLM', 'LangChain']
+    items: ['PyTorch', 'Hugging Face Transformers', 'Unsloth', 'QLoRA / PEFT', 'Instruction tuning', 'vLLM', 'LangChain'],
   },
   {
     heading: 'Evaluation & Quality',
-    items: ['Benchmark design', 'Rubric construction', 'Factuality & citation assessment', 'Hallucination evaluation', 'Adversarial testing', 'Failure-mode analysis']
+    items: ['Benchmark design', 'Rubric construction', 'Factuality & citation assessment', 'Adversarial testing', 'Failure-mode analysis'],
   },
   {
     heading: 'Search & Retrieval',
-    items: ['Retrieval-augmented generation', 'Natural-language-to-SQL', 'Advanced SQL', 'ETL pipelines', 'Knowledge graphs', 'Neo4j']
+    items: ['Retrieval-augmented generation', 'Natural-language-to-SQL', 'Advanced SQL', 'ETL pipelines', 'Neo4j / Knowledge graphs'],
   },
   {
     heading: 'Infrastructure',
-    items: ['Docker', 'FastAPI', 'REST APIs', 'GitHub Actions', 'Azure', 'AWS', 'GCP']
-  }
+    items: ['Docker', 'FastAPI', 'GitHub Actions', 'Azure', 'AWS', 'GCP'],
+  },
 ];
 
 export default function Skills({ darkMode }: SkillsProps) {
   return (
-    <motion.section
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      id="skills"
-      className="py-20"
-    >
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold mb-12 text-center flex items-center justify-center">
-          <Code2 className={`mr-2 ${darkMode ? 'text-chartreuse' : 'text-deepBlue'}`} />
-          Technical Skills
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-          {skillGroups.map((group, index) => (
-            <motion.div
-              key={`skill-group-${index}`}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-              className={`${darkMode ? 'bg-black' : 'bg-white'} rounded-lg shadow-lg p-6 transition-all duration-300 hover:shadow-xl backdrop-blur-md bg-opacity-80`}
-            >
-              <h3 className={`text-xl font-semibold mb-4 ${darkMode ? 'text-chartreuse' : 'text-deepBlue'}`}>
-                {group.heading}
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {group.items.map((item, i) => (
-                  <span
-                    key={`skill-${index}-${i}`}
-                    className={`text-sm px-3 py-1 rounded-full ${darkMode ? 'bg-chartreuse text-deepBlack' : 'bg-deepBlue text-white'}`}
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-          ))}
+    <section id="skills" className={`border-t ${darkMode ? 'border-hairlineDark' : 'border-hairline'}`}>
+      <div className="max-w-6xl mx-auto px-6 md:px-10 py-24 md:py-36">
+        <div className="grid md:grid-cols-[200px_1fr] gap-10 md:gap-16">
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.5 }}
+            className={`font-mono text-[12px] tracking-[0.12em] uppercase ${darkMode ? 'text-tealDark' : 'text-teal'}`}
+          >
+            04 — Capabilities
+          </motion.p>
+
+          <div className="grid sm:grid-cols-2 gap-x-10 gap-y-10 max-w-3xl">
+            {GROUPS.map((group, i) => (
+              <motion.div
+                key={group.heading}
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.5, delay: i * 0.05 }}
+              >
+                <h3 className={`font-serif text-lg mb-4 ${darkMode ? 'text-bone' : 'text-ink'}`}>
+                  {group.heading}
+                </h3>
+                <ul className="space-y-1.5">
+                  {group.items.map((item) => (
+                    <li key={item} className={`text-[15px] font-light ${darkMode ? 'text-bone/65' : 'text-inkMuted'}`}>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 }

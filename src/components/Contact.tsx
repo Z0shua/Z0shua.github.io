@@ -1,102 +1,81 @@
-import { Send } from 'lucide-react';
+import { Mail, Github, Linkedin, ArrowUpRight } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import ParticleField from './ParticleField';
 
 interface ContactProps {
   darkMode: boolean;
 }
 
 export default function Contact({ darkMode }: ContactProps) {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [formStatus, setFormStatus] = useState('');
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prevState => ({ ...prevState, [name]: value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setFormStatus('Sending...');
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    setFormStatus('Message sent successfully!');
-    setFormData({ name: '', email: '', message: '' });
-    setTimeout(() => setFormStatus(''), 3000);
-  };
-
   return (
-    <motion.section 
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      id="contact" 
-      className="py-20"
-    >
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold mb-12 text-center flex items-center justify-center">
-          <Send className={`mr-2 ${darkMode ? 'text-chartreuse' : 'text-deepBlue'}`} />
-          Contact Me
-        </h2>
-        <div className="max-w-3xl mx-auto">
-          <motion.form 
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.3 }}
-            onSubmit={handleSubmit}
-            className={`${darkMode ? 'bg-black' : 'bg-white'} rounded-lg shadow-lg p-8 transition-all duration-300 hover:shadow-xl backdrop-blur-md bg-opacity-80`}
-          >
-            <div className="mb-6">
-              <label htmlFor="name" className="block text-sm font-medium mb-2">Name</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleInputChange}
-                required
-                className={`w-full px-3 py-2 border ${darkMode ? 'border-gray-700 bg-gray-900' : 'border-gray-300 bg-white'} rounded-md focus:outline-none focus:ring-2 ${darkMode ? 'focus:ring-chartreuse' : 'focus:ring-deepBlue'}`}
-              />
-            </div>
-            <div className="mb-6">
-              <label htmlFor="email" className="block text-sm font-medium mb-2">Email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleInputChange}
-                required
-                className={`w-full px-3 py-2 border ${darkMode ? 'border-gray-700 bg-gray-900' : 'border-gray-300 bg-white'} rounded-md focus:outline-none focus:ring-2 ${darkMode ? 'focus:ring-chartreuse' : 'focus:ring-deepBlue'}`}
-              />
-            </div>
-            <div className="mb-6">
-              <label htmlFor="message" className="block text-sm font-medium mb-2">Message</label>
-              <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleInputChange}
-                required
-                rows={4}
-                className={`w-full px-3 py-2 border ${darkMode ? 'border-gray-700 bg-gray-900' : 'border-gray-300 bg-white'} rounded-md focus:outline-none focus:ring-2 ${darkMode ? 'focus:ring-chartreuse' : 'focus:ring-deepBlue'}`}
-              ></textarea>
-            </div>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              type="submit"
-              className={`w-full ${darkMode ? 'bg-chartreuse text-deepBlack' : 'bg-deepBlue text-white'} py-2 px-4 rounded-md hover:opacity-90 transition-colors duration-300`}
-            >
-              Send Message
-            </motion.button>
-            {formStatus && (
-              <p className={`mt-4 text-center ${formStatus.includes('successfully') ? 'text-green-500' : 'text-red-500'}`}>
-                {formStatus}
-              </p>
-            )}
-          </motion.form>
-        </div>
+    <section id="contact" className={`relative border-t overflow-hidden ${darkMode ? 'border-hairlineDark' : 'border-hairline'}`}>
+      <div
+        className="absolute inset-0"
+        style={{
+          maskImage: 'radial-gradient(ellipse 70% 60% at 50% 50%, black 0%, transparent 75%)',
+          WebkitMaskImage: 'radial-gradient(ellipse 70% 60% at 50% 50%, black 0%, transparent 75%)',
+        }}
+      >
+        <ParticleField darkMode={darkMode} variant="faint" />
       </div>
-    </motion.section>
+
+      <div className="relative max-w-6xl mx-auto px-6 md:px-10 py-24 md:py-36 text-center">
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.5 }}
+          className={`font-mono text-[12px] tracking-[0.12em] uppercase mb-6 ${darkMode ? 'text-tealDark' : 'text-teal'}`}
+        >
+          06 — Get in touch
+        </motion.p>
+
+        <motion.h2
+          initial={{ opacity: 0, y: 14 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className={`font-serif text-3xl md:text-5xl leading-tight max-w-2xl mx-auto mb-10 ${darkMode ? 'text-bone' : 'text-ink'}`}
+        >
+          Open to conversations on clinical AI, evaluation, and research collaboration.
+        </motion.h2>
+
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="flex flex-col items-center gap-6"
+        >
+          <a
+            href="mailto:zhangshu.j.jiang@gmail.com"
+            className={`group inline-flex items-center gap-2 font-serif text-xl md:text-2xl border-b pb-1 transition-colors duration-300 ${
+              darkMode ? 'text-bone border-bone/40 hover:text-tealDark hover:border-tealDark' : 'text-ink border-ink/30 hover:text-teal hover:border-teal'
+            }`}
+          >
+            zhangshu.j.jiang@gmail.com
+            <ArrowUpRight size={20} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </a>
+
+          <div className={`flex items-center gap-6 mt-2 ${darkMode ? 'text-bone/60' : 'text-inkMuted'}`}>
+            <a href="https://www.linkedin.com/in/zhangshu-jiang/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className={`transition-colors duration-300 ${darkMode ? 'hover:text-tealDark' : 'hover:text-teal'}`}>
+              <Linkedin size={18} />
+            </a>
+            <a href="https://github.com/Z0shua" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className={`transition-colors duration-300 ${darkMode ? 'hover:text-tealDark' : 'hover:text-teal'}`}>
+              <Github size={18} />
+            </a>
+            <a href="mailto:zhangshu.j.jiang@gmail.com" aria-label="Email" className={`transition-colors duration-300 ${darkMode ? 'hover:text-tealDark' : 'hover:text-teal'}`}>
+              <Mail size={18} />
+            </a>
+          </div>
+        </motion.div>
+      </div>
+
+      <div className={`relative border-t py-6 ${darkMode ? 'border-hairlineDark' : 'border-hairline'}`}>
+        <p className={`text-center font-mono text-[11px] tracking-wide ${darkMode ? 'text-bone/35' : 'text-boneMuted'}`}>
+          © {new Date().getFullYear()} Zhangshu Joshua Jiang
+        </p>
+      </div>
+    </section>
   );
 }

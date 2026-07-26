@@ -1,4 +1,3 @@
-import { User } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 interface AboutProps {
@@ -7,48 +6,55 @@ interface AboutProps {
 
 export default function About({ darkMode }: AboutProps) {
   return (
-    <motion.section 
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      id="about" 
-      className="py-12 md:py-20"
+    <section
+      id="about"
+      className={`border-t ${darkMode ? 'border-hairlineDark' : 'border-hairline'}`}
     >
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center flex items-center justify-center">
-          <User className={`mr-2 ${darkMode ? 'text-chartreuse' : 'text-deepBlue'}`} />
-          About Me
-        </h2>
-        <div className={`${darkMode ? 'bg-black' : 'bg-white'} rounded-lg shadow-lg p-6 md:p-8 transition-colors duration-300 backdrop-blur-md bg-opacity-80`}>
-          <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12">
-            <motion.div 
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="w-48 md:w-1/3"
+      <div className="max-w-6xl mx-auto px-6 md:px-10 py-24 md:py-36">
+        <div className="grid md:grid-cols-[200px_1fr] gap-10 md:gap-16">
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.5 }}
+            className={`font-mono text-[12px] tracking-[0.12em] uppercase ${darkMode ? 'text-tealDark' : 'text-teal'}`}
+          >
+            01 — Profile
+          </motion.p>
+
+          <div className="max-w-2xl">
+            <motion.h2
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.6 }}
+              className={`font-serif text-3xl md:text-4xl leading-tight mb-8 ${darkMode ? 'text-bone' : 'text-ink'}`}
             >
-              <img 
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_20241031_002938-vAdn2XugCOVKagJ06cB971bYxqfDVI.png" 
-                alt="Joshua Jiang" 
-                className="rounded-full w-48 h-48 md:w-64 md:h-64 object-cover mx-auto shadow-lg" 
-              />
-            </motion.div>
-            <motion.div 
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="md:w-2/3"
+              Trained to treat patients. Working now to keep language models honest about them.
+            </motion.h2>
+
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className={`space-y-5 text-base md:text-[17px] leading-relaxed font-light ${darkMode ? 'text-bone/75' : 'text-inkMuted'}`}
             >
-              <p className="text-base md:text-lg mb-4 md:mb-6 leading-relaxed">
-                I'm an LLM evaluation researcher and systems builder, and a medical doctor, working on post-training, benchmark design, and retrieval-augmented systems for high-stakes domains. My PhD at King's College London examines long-horizon model behaviour over longitudinal clinical data: QLoRA fine-tuning of open-source models with Unsloth, rubric-based evaluation of factuality and grounding, and multi-step reasoning assessment.
+              <p>
+                My PhD at King&rsquo;s College London examines how language models behave over long clinical
+                horizons — post-training with QLoRA, rubric-based evaluation of factuality and grounding, and
+                multi-step reasoning assessment where a confident answer and a correct one can diverge.
               </p>
-              <p className="text-base md:text-lg leading-relaxed">
-                I built and shipped OMCP, an open-source natural-language-to-SQL system adopted by five research teams, and currently evaluate frontier model outputs as a Medical Fellow at Scale AI. My clinical background means I notice when an answer sounds right but isn't.
+              <p>
+                I built and shipped OMCP, an open-source natural-language-to-SQL system now used by five
+                research teams, and I currently evaluate frontier model outputs as a Medical Fellow at Scale AI.
+                The clinical training is what makes me useful here: I notice when an answer sounds complete but
+                leaves out the thing that would change a decision.
               </p>
             </motion.div>
           </div>
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 }

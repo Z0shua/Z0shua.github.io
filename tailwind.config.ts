@@ -19,10 +19,19 @@ export default {
     },
     extend: {
       colors: {
-        chartreuse: '#7FFF00',
-        deepBlue: '#0003a3',
-        deepBlack: '#121212',
-        glassWhite: 'rgba(255, 255, 255, 0.1)',
+        // Editorial palette: warm paper / deep charcoal / muted teal accent
+        paper: '#F7F4EC',
+        paperMuted: '#EFEAE0',
+        ink: '#17181A',
+        inkMuted: '#54534C',
+        charcoal: '#15181A',
+        charcoalMuted: '#1E2224',
+        bone: '#EDEDE8',
+        boneMuted: '#9A9C97',
+        teal: '#3D6E68',
+        tealDark: '#6FBDB3',
+        hairline: 'rgba(23, 24, 26, 0.12)',
+        hairlineDark: 'rgba(237, 237, 232, 0.14)',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -59,6 +68,7 @@ export default {
       },
       fontFamily: {
         sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        serif: ['Fraunces', 'ui-serif', 'Georgia', 'serif'],
         mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
       },
     },
